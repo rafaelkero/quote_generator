@@ -1,0 +1,139 @@
+const quoteDisplay = document.getElementById("quoteDisplay")
+const quoteAuthor = document.getElementById("author")
+const button = document.getElementById("button")
+
+let quotes = [
+    {
+        msg: "A alma é tingida com a cor de seus pensamentos. ",
+        author: "Marcos Aurelio",
+    },
+    {
+        msg: "Muitas vezes erra não apenas quem faz, mas também quem deixa de fazer alguma coisa.",
+        author: "Marco Aurelio",
+    },
+    {
+        msg: "Pratica cada um dos teus atos como se fosse o último da tua vida",
+        author: "Marco Aurelio",
+    },
+    {
+        msg: "Não perca tempo discutindo sobre o que um bom homem deve ser. Seja",
+        author: "Marco Aurelio",
+    },
+    {
+        msg: "O objetivo da vida não é estar do lado da maioria, mas escapar de se encontrar nas fileiras dos loucos.",
+        author: "Marco Aurelio",
+    },
+    {
+        msg: "As coisas em que você pensa determinam a qualidade de sua mente.",
+        author: "Marco Aurelio",
+    },
+    {
+        msg: "Eu lhe considero desafortunado porque você nunca viveu um infortúnio. Você passou pela vida sem um oponente — ninguém pode saber do que você é capaz, nem mesmo você.",
+        author: "Sêneca",
+    },
+    {
+        msg: "Você tem medo de morrer, mas o que é sua vida hoje senão morte?",
+        author: "Sêneca",
+    },
+    {
+        msg: "Apressa-te a viver bem e pensa que cada dia é, por si só, uma vida.",
+        author: "Sêneca",
+    },
+    {
+        msg: "Não nos atrevemos a muitas coisas porque são difíceis, mas são difíceis porque não nos atrevemos a fazê-las",
+        author: "Sêneca",
+    },
+    {
+        msg: "Os ódios ocultos são piores que os descobertos.",
+        author: "Sêneca",
+    },
+    {
+        msg: "A riqueza não consiste em ter grandes posses, mas em ter poucas necessidades.",
+        author: "Epicteto",
+    },
+    {
+        msg: "Se o problema possui solução não devemos nos preocupar com ele. E se não possui solução, de nada adianta nos preocuparmos.",
+        author: "Epicteto",
+    },
+    {
+        msg: "Não busqueis a felicidade fora, mas sim dentro de vós, caso contrário nunca a encontrareis.",
+        author: "Epicteto",
+    },
+    {
+        msg: "O homem não se preocupa tanto com problemas reais quanto com as ansiedades imaginadas sobre problemas reais.",
+        author: "Epicteto",
+    },
+    {
+        msg: "Só há um caminho para a felicidade (que isso esteja presente no teu espírito desde a aurora, dia e noite): é renunciar às coisas que não dependem da nossa vontade.",
+        author: "Epicteto",
+    },
+    {
+        msg: "O amanhã existe apenas no pensamento. O ontem existe apenas na memória. O presente é o acaso construído pela consciência.",
+        author: "Zenão de Cítio",
+    },
+    {
+        msg: "Nenhuma perda deve ser para nós mais sensível do que aquela do tempo, porque ela é irreparável.",
+        author: "Zenão de Cítio",
+    },
+    {
+        msg: "Lembre-se de que a natureza nos deu dois ouvidos e uma boca para nos ensinar que vale mais ouvir do que falar.",
+        author: "Zenão de Cítio",
+    },
+    {
+        msg: "O sentido da vida consiste estar de acordo com a natureza.",
+        author: "Zenão de Cítio",
+    },
+    {
+        msg: "O fim pode ser definido como a vida de acordo com a natureza ou, em outras palavras, de acordo com a nossa própria natureza humana e também a do universo.",
+        author: "Zenão de Cítio",
+    },
+    {
+        msg: "Nenhum homem é por natureza escravo.",
+        author: "Zenão de Cítio",
+    },
+    {
+        msg: "O sábio não se comove por ninguém e não condena ninguém por um erro cometido.",
+        author: "Zenão de Cítio",
+    },
+    {
+        msg: "O homem conquista o mundo conquistando a si mesmo.",
+        author: "Zenão de Cítio",
+    },
+    {
+        msg: "Os tolos não precisam de nada, pois não sabem usar nada, mas têm falta de tudo.",
+        author: "Crisipo de Solis",
+    },
+    {
+        msg: "Não poderia haver justiça, a menos que também houvesse injustiça; sem coragem, a menos que houvesse covardia; nenhuma verdade, a menos que houvesse falsidade.",
+        author: "Crisipo de Solis",
+    },
+    {
+        msg: "Eu mesmo penso que o homem sábio pouco ou nada se intromete nos negócios e faz suas próprias coisas.",
+        author: "Crisipo de Solis",
+    },
+    {
+        msg: "Se eu seguisse a multidão, não teria estudado filosofia.",
+        author: "Crisipo de Solis",
+    },
+    {
+        msg: "Ter a mente equilibrada é a maior virtude.",
+        author: "Heráclito",
+    },
+    {
+        msg: "A vida dos homens que passam seu tempo em meio a negócios e que desejam ser úteis a si mesmos e aos outros, está exposta a problemas constantes e quase diários e a perigos repentinos. Para se proteger e evitar isso, é necessário ter uma mente que está sempre pronta e alerta, como os atletas.",
+        author: "Panécio",
+    },
+]
+
+let randomQuotes = (item) => {
+    return item[Math.floor(Math.random() * item.length)]
+}
+const firstMessage = randomQuotes(quotes)
+quoteDisplay.innerText = `"${firstMessage.msg}"`
+quoteAuthor.innerText = `— ${firstMessage.author}`
+
+button.addEventListener("click", (e) => {
+    let text = randomQuotes(quotes)
+    quoteDisplay.innerText = `"${text.msg}"`
+    quoteAuthor.innerText = `— ${text.author}`
+})
