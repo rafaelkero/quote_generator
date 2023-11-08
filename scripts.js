@@ -1,8 +1,18 @@
+const apiUrl = "https://api.thecatapi.com/v1/images/search"
+const image = document.querySelector("img")
 const quoteDisplay = document.getElementById("quoteDisplay")
 const quoteAuthor = document.getElementById("author")
 const button = document.getElementById("button")
 
-let randomQuotes = () => {
+const randomPic = () => {
+    fetch(apiUrl).then((response) => {
+        response.json().then((img) => {
+            image.src = img[0].url
+        })
+    })
+}
+
+let randomQuote = () => {
     fetch("quotes.json").then((response) => {
         response.json().then((message) => {
             let random = (item) => {
@@ -14,8 +24,10 @@ let randomQuotes = () => {
     })
 }
 
-randomQuotes()
+randomQuote()
+randomPic()
 
 button.addEventListener("click", () => {
-    randomQuotes()
+    randomQuote()
+    randomPic()
 })
